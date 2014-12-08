@@ -1,0 +1,4 @@
+---
+applications:
+- name: uaa-demo
+  command: uaa-demo 

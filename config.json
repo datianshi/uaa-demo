@@ -1,0 +1,7 @@
+{
+	"login" : "http://login.10.244.0.34.xip.io",
+	"uaa": "http://uaa.10.244.0.34.xip.io",
+	"clientId": "shaozhen",
+	"clientSecret": "shaozhen",
+	"redirectUrl": "http://uaa-demo.10.244.0.34.xip.io/token/"
+}
