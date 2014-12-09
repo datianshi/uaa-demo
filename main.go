@@ -38,26 +38,19 @@ func init() {
 
 func viewHandler(w http.ResponseWriter, r *http.Request, uaaObject uaa.UAA) {
 	session, err := getSession(r)
-	if err != nil {
-		fmt.Println(err)
-	}
+	pr(err)
 	token := session.Values["token"]
 	if token == nil {
 		http.Redirect(w, r, uaaObject.LoginURL(), http.StatusFound)
 	}
 	tplate, err := template.New("name").Parse(viewHtml)
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	pr(err)
 	tplate.Execute(w, token)
 }
 
 func tokenHandler(w http.ResponseWriter, r *http.Request, uaaObject uaa.UAA) {
 	code := r.URL.Query().Get("code")
-	fmt.Println("My code:" + code)
 	token, err := uaaObject.Exchange(code)
-	fmt.Println(token)
 	pr(err)
 	session, err := getSession(r)
 	pr(err)
